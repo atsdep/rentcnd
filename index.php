@@ -13,7 +13,7 @@ include("process/Select_Member.php");
 		Remove this if you use the .htaccess -->
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-		<title>Rendcnd</title>
+		<title>Rendcnd ลงประกาศ ค้นหา รถเช่าพร้อมคนขับที่คุณเลือกได้เอง</title>
 		<meta name="description" content="">
 		<meta name="author" content="Adthasid">
 
