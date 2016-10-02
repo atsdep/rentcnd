@@ -259,27 +259,31 @@ include ('process/Select_Ann.php');
 							
 							<div class="col-lg-4 col-md-6">
 								<div class="announce">
-									<img src="img/suv.jpg" alt="" title="Image 1" class="img-responsive"/>
+									<a href="car.php?id=<?php echo $row_ann['announce_id']; ?>">
+										<img src="img/suv.jpg" alt="" title="Image 1" class="img-responsive"/>
+									</a>
 									<div class="image-caption text-center text-center-sm" id="blackeagleImageCaptionID">
-										<span>฿ </span><strong><?php echo  number_format( $row_ann['price_1'] ) ;?></strong>
+										<span>฿ </span><strong><?php echo number_format($row_ann['price_1']); ?></strong>
 									</div>
 									<div class="col-lg-12 bg-white show">
-										<h4 class="listing-name text-truncate"><?php echo $row_ann['ann_title'] ;?></h4>
+										<a href="car.php?id=<?php echo $row_ann['announce_id']; ?>">
+											<h4 class="listing-name text-truncate"><?php echo $row_ann['ann_title']; ?></h4>
+										</a>
 										<div class="row text-normal text-muted">
-											<?php 
-												$gene = $row_ann['car_gene'];
-												$query_cate = mysqli_query($connect, "SELECT `category_name` 
+											<?php
+											$gene = $row_ann['car_gene'];
+											$query_cate = mysqli_query($connect, "SELECT `category_name` 
 												FROM `car_category` 
 												INNER JOIN `car_gene` 
 												ON car_category.category_id = car_gene.car_category 
 												WHERE car_gene.car_gene_id = $gene ");
-												$result_cate = mysqli_fetch_assoc($query_cate);
-												
-												$province = $row_ann['start_province'];
-												$query_province = mysqli_query($connect, "SELECT `PROVINCE_NAME` 
+											$result_cate = mysqli_fetch_assoc($query_cate);
+
+											$province = $row_ann['start_province'];
+											$query_province = mysqli_query($connect, "SELECT `PROVINCE_NAME` 
 												FROM `province` 
 												WHERE PROVINCE_ID = $province ");
-												$result_province = mysqli_fetch_assoc($query_province);
+											$result_province = mysqli_fetch_assoc($query_province);
 											?>
 											<span class=""><?php echo $result_cate['category_name'] ?></span>
 											<span class="space-left-1"><?php echo $result_province['PROVINCE_NAME'] ?></span>

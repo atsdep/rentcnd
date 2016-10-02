@@ -335,7 +335,7 @@ include("process/Select_Member.php");
 							</div>
 							<div class="row">
 								<div class="col-sm-12 col-lg-4 col-lg-offset-4 row-space-top-4">
-									<a href="testAnn.php?result=all" class="btn btn-large btn-block btn-findall" data-hook="discovery-see-all-button"> ดูประกาศทั้งหมด </a>
+									<a href="announce.php?result=all" class="btn btn-large btn-block btn-findall" data-hook="discovery-see-all-button"> ดูประกาศทั้งหมด </a>
 								</div>
 							</div>
 						</div>
