@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>index</title>
+		<meta name="description" content="">
+		<meta name="author" content="Adthasid">
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+		<!-- css -->
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/custom3.css">
+
+		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
+		<link rel="shortcut icon" href="/favicon.ico">
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+	</head>
+
+	<body>
+		<nav class="navbar navbar-default navbar-in">
+			<div class="container-fluid">
+
+				<a class="navbar-brand" href="index.php">Logo</a>
+				<span class="navbar-text pull-left hidden-xs">ขั้นตอนที่ 3 : เตรียมพร้อมสำหรับผู้ใช้บริการ</span>
+				<a href="new.php" class="navbar-text pull-right link">บันทึกและออก</a>
+			</div>
+		</nav>
+
+		<div class="container-fluid content-new">
+			<div class="col-md-7">
+				<div class="panel-header-new">
+					<h3 class="no-margin-padding">การกำหนดราคา</h3>
+					<div class="panel-title-amenities">
+						<div class="block-panel">
+							<h4 class="no-margin-padding mgt30">ภายในจังหวัด</h4>
+							<div class="space-top-2">
+								<div>
+									<div class="">
+										<!-- <label for="price-stepper" class="h4 text-muted text-normal"> <span>รายวัน</span> </label> -->
+										<div>
+											<div class="increment-btn no-padding">
+												<div class="increment-btn btn-group no-padding">
+													<div class="text-gray btn increment-jumbo increment-btn__label" tabindex="0">
+														<div class="increment-btn__border-container-label text-truncated">
+															<span class="text-black">฿</span>
+															<input class="increment-btn__input" id="price" type="number" value="" style="width: 46px;">
+															<span class="text-muted"><span>ต่อวัน</span></span>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+
+						<div class="block-panel space-top-5">
+							<h4 class="no-margin-padding">ไปต่างจังหวัด</h4>
+							<div class="space-top-2">
+								<div class="select select-block select-jumbo">
+									<select id="house-type" name="house_type" class="text-gray">
+										<option selected="" disabled="">เลือกหนึ่งข้อ</option>
+										<option>กรุงเทพ</option>
+										<option>เชียงใหม่</option>
+									</select>
+								</div>
+							</div>
+							<div class="space-top-2">
+								<div>
+									<div class="">
+										<!-- <label for="price-stepper" class="h4 text-muted text-normal"> <span>รายวัน</span> </label> -->
+										<div>
+											<div class="increment-btn no-padding">
+												<div class="increment-btn btn-group no-padding">
+													<div class="text-gray btn increment-jumbo increment-btn__label" tabindex="0">
+														<div class="increment-btn__border-container-label text-truncated">
+															<span class="text-black">฿</span>
+															<input class="increment-btn__input" id="price-stepper" type="number" value="" style="width: 46px;">
+															<span class="text-muted"><span>ต่อวัน</span></span>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="button-panel mgt120">
+							<a href="question-2.php"><span class="">กลับไป</span></a>
+
+							<a id="btn-next" class="btn btn-large btn-primary pull-right" href="#">
+							<div class="btn-progress-next__text">
+								<span>ถัดไป</span>
+							</div></a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-5">
+
+			</div>
+		</div>
+
+	</body>
+
+	<?php
+	require ("config/js.php");
+	?>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			//$(".error").hide();
+
+			$("#btn-next").click(function(e) {
+
+				var vPrice = $("#price").val();
+				var mode = "update_price";
+				console.log(vPrice);
+
+				$.post("process/Test_Update.php", {
+					p1 : vPrice,
+					mode : mode
+
+				}, function(data) {
+					var obj = JSON.parse(data);
+					if (obj.error) {
+						alert(obj.msg);
+					} else {
+						location.replace(obj.update);
+						console.log(obj);
+					}
+				})
+			});
+		});
+	</script>
+</html>
