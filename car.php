@@ -8,10 +8,25 @@ if ($_GET["id"] != null) {
 	$result_ann = mysqli_fetch_assoc($query_ann);
 
 	$row_ann = mysqli_num_rows($query_ann);
-	
-	if($row_ann != 1){
+
+	if ($row_ann != 1) {
 		header("location:index.php");
 	}
+
+	$gene = $result_ann['car_gene'];
+	$query_join = mysqli_query($connect, "SELECT car_brand.car_brand_name,
+												car_category.category_name,
+												car_gene.car_gene_name
+												FROM `car_category` 
+												INNER JOIN `car_gene`
+												ON car_category.category_id = car_gene.car_category 
+												INNER JOIN `car_brand`
+												ON car_gene.car_brand = car_brand.car_brand_id
+												WHERE car_gene.car_gene_id = $gene ");
+	$result_join = mysqli_fetch_assoc($query_join);
+
+} else {
+	header("location:index.php");
 }
 ?>
 <!DOCTYPE html>
@@ -23,7 +38,7 @@ if ($_GET["id"] != null) {
 		Remove this if you use the .htaccess -->
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-		<title><?php echo $result_ann['ann_title'] ;?> รถให้เช่าพร้อมคนขับใน Rentcnd.com</title>
+		<title><?php echo $result_ann['ann_title']; ?> รถให้เช่าพร้อมคนขับใน Rentcnd.com</title>
 		<meta name="description" content="">
 		<meta name="author" content="Adthasid">
 
@@ -111,7 +126,7 @@ if ($_GET["id"] != null) {
 										</div>
 									</div>
 									<div class="col-md-9">
-										<h1 class="h3 space-1 text-center-sm" id="listing_name"><?php echo $result_ann['ann_title'] ;?></h1>
+										<h1 class="h3 space-1 text-center-sm" id="listing_name"><?php echo $result_ann['ann_title']; ?></h1>
 										<div id="display-address" class="space-2 text-muted text-center-sm">
 											<span>กรุงเทพมหานคร</span>
 										</div>
@@ -135,7 +150,7 @@ if ($_GET["id"] != null) {
 												รถเก๋ง
 											</div>
 											<div class="col-sm-4">
-												รองรับผู้โดยสาร  <?php echo $result_ann['passenger'];?> คน
+												รองรับผู้โดยสาร  <?php echo $result_ann['passenger']; ?> คน
 											</div>
 										</div>
 									</div>
@@ -149,13 +164,13 @@ if ($_GET["id"] != null) {
 								<div class="row">
 									<div class="col-sm-8">
 										<div class="book-it__price-amount">
-											<span class="h3"><span>฿<?php echo number_format($result_ann['price_1']);?></span></span>
+											<span class="h3"><span>฿<?php echo number_format($result_ann['price_1']); ?></span></span>
 										</div>
 									</div>
 									<div class="col-sm-4">
 										<div class="pull-right">
 											<div class="book-it__payment-period">
-												<span>ขั้นต่ำต่อวัน</span>
+												<span>ต่อวัน</span>
 											</div>
 										</div>
 									</div>
@@ -169,11 +184,11 @@ if ($_GET["id"] != null) {
 												<div class="row row-condensed">
 													<div class="col-sm-6">
 														<label class="book-it__label">วันที่เช่า</label>
-														<input id="datespan-checkin" type="text" name="checkin" class="checkin ui-datepicker-target" placeholder="วัน-เดือน-ปี">
+														<input id="from" type="text" name="checkin" class="checkin ui-datepicker-target" placeholder="วัน-เดือน-ปี">
 													</div>
 													<div class="col-sm-6">
 														<label class="book-it__label">ถึงวันที่</label>
-														<input id="datespan-checkout" type="text" name="checkout" class="checkout ui-datepicker-target" placeholder="วัน-เดือน-ปี">
+														<input id="to" type="text" name="checkout" class="checkout ui-datepicker-target" placeholder="วัน-เดือน-ปี">
 													</div>
 												</div>
 											</div>
@@ -212,7 +227,7 @@ if ($_GET["id"] != null) {
 							<h4 class="space-4 text-center-sm"><span>เกี่ยวกับเรา</span></h4>
 							<div>
 								<p>
-									<span><?php echo $result_ann['ann_description'];?></span>
+									<span><?php echo $result_ann['ann_description']; ?></span>
 								</p>
 								<!-- <p>
 								<span>Room on the sixth floor of the condominium close to Chiang Mai University.</span>
@@ -241,11 +256,12 @@ if ($_GET["id"] != null) {
 								<div class="col-md-9">
 									<div class="row">
 										<div class="col-md-6">
+											
 											<div>
-												<span>&nbsp;&nbsp;&nbsp;</span><span>ยี่ห้อ : </span><strong>Toyota</strong>
+												<span>&nbsp;&nbsp;&nbsp;</span><span>ยี่ห้อ : </span><strong><?php echo $result_join['car_brand_name']; ?></strong>
 											</div>
 											<div>
-												<span>&nbsp;&nbsp;&nbsp;</span><span>รุ่น : </span><strong>Yaris</strong>
+												<span>&nbsp;&nbsp;&nbsp;</span><span>รุ่น : </span><strong><?php echo $result_join['car_gene_name']; ?></strong>
 											</div>
 											<div>
 												<span>&nbsp;&nbsp;&nbsp;</span><span>ปี : </span><strong>2010</strong>
@@ -254,13 +270,13 @@ if ($_GET["id"] != null) {
 										</div>
 										<div class="col-md-6">
 											<div>
-												<span>&nbsp;&nbsp;&nbsp;</span><span>ประเภทรถ  : </span><strong >รถเก๋ง</strong>
+												<span>&nbsp;&nbsp;&nbsp;</span><span>ประเภทรถ  : </span><strong ><?php echo $result_join['category_name']; ?></strong>
 											</div>
 											<div>
 												<span>&nbsp;&nbsp;&nbsp;</span><span>เชื้อเพลิง : </span><strong>แก๊ส LPG</strong>
 											</div>
 											<div>
-												<span>&nbsp;&nbsp;&nbsp;</span><span>รองรับผู้โดยสาร : </span><strong><?php echo $result_ann['passenger'];?> คน</strong>
+												<span>&nbsp;&nbsp;&nbsp;</span><span>รองรับผู้โดยสาร : </span><strong><?php echo $result_ann['passenger']; ?> คน</strong>
 											</div>
 
 										</div>
@@ -537,12 +553,107 @@ if ($_GET["id"] != null) {
 				</div>
 			</div>
 		</div>
+		
+		<?php
+		$query_calendar = mysqli_query($connect, "SELECT * FROM `calendar` WHERE announce_id = '" . $_GET["id"] . "'");
+		$date = array();
+		while ($result_date = mysqli_fetch_assoc($query_calendar)) {
+			$date_expire = $result_date['date'];
+			$expire = strtotime($date_expire);
+			$today = strtotime(date("Y-m-d"));
+
+			if ($today <= $expire && $result_date['status'] == 0) {
+				array_push($date, $date_expire);
+			} else {
+
+			}
+		}
+		?>
 
 	</body>
-
 	<script src="js/jquery.js" type="text/javascript"></script>
 	<script src="js/bootstrap.min.js" type="text/javascript"></script>
-
 	<script src="js/jquery-3.1.0.min.js" type="text/javascript"></script>
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  	<script>
+		
+		var day = new Array(<?php echo json_encode($date); ?>
+			);
+
+			$(function() {
+				var d = new Date();
+				var dateFormat = "mm/dd/yy",
+				    from = $("#from").datepicker({
+					showButtonPanel : true,
+					minDate : 0,
+					maxDate : '+3M',
+					beforeShowDay : function(date) {
+						var datestring = jQuery.datepicker.formatDate('yy-mm-dd', date);
+						var hindex = $.inArray(datestring);
+						if (hindex > -1) {
+							return [true];
+						}
+						var aindex = $.inArray(datestring, day[0]);
+						return [aindex == -1]
+					},
+					beforeShow : function(input) {
+						setTimeout(function() {
+							var buttonPane = $(input).datepicker("widget").find(".ui-datepicker-buttonpane");
+
+							var btn = $('<button type="button" class="ui-datepicker-current ui-state-default ui-priority-secondary ui-corner-all">Clear</button>');
+							btn.unbind("click").bind("click", function() {
+								$.datepicker._clearDate(input);
+							});
+
+							btn.appendTo(buttonPane);
+
+						}, 1);
+					}
+				}).on("change", function() {
+					to.datepicker("option", "minDate", getDate(this));
+				}),
+				    to = $("#to").datepicker({
+					showButtonPanel : true,
+					maxDate : '+3M',
+					beforeShowDay : function(date) {
+						var datestring = jQuery.datepicker.formatDate('yy-mm-dd', date);
+						var hindex = $.inArray(datestring);
+						if (hindex > -1) {
+							return [true];
+						}
+						var aindex = $.inArray(datestring, day[0]);
+						return [aindex == -1]
+					},
+					beforeShow : function(input) {
+						setTimeout(function() {
+							var buttonPane = $(input).datepicker("widget").find(".ui-datepicker-buttonpane");
+
+							var btn = $('<button type="button" class="ui-datepicker-current ui-state-default ui-priority-secondary ui-corner-all">Clear</button>');
+							btn.unbind("click").bind("click", function() {
+								$.datepicker._clearDate(input);
+							});
+
+							btn.appendTo(buttonPane);
+
+						}, 1);
+					}
+				}).on("change", function() {
+					from.datepicker("option", "maxDate", getDate(this));
+				});
+
+				function getDate(element) {
+					var date;
+					try {
+						date = $.datepicker.parseDate(dateFormat, element.value);
+					} catch(error) {
+						date = null;
+					}
+					return date;
+				}
+
+			});
+  </script>
 
 </html>
