@@ -196,7 +196,7 @@ if ($_GET["id"] != null) {
 												<div>
 													<label class="book-it__label">ผู้โดยสาร</label>
 													<div class="select select-block">
-														<select>
+														<select id="passenger">
 															<option value="1">1</option>
 															<option value="2">2</option>
 															<option value="2">14</option>
@@ -206,7 +206,7 @@ if ($_GET["id"] != null) {
 											</div>
 										</div>
 										<div>
-											<button type="submit" class="btn btn-primary btn-large btn-block">
+											<button id="btn-booking" type="button" class="btn btn-primary btn-large btn-block">
 												<span>ขอจอง</span>
 											</button>
 										</div>
@@ -553,7 +553,8 @@ if ($_GET["id"] != null) {
 				</div>
 			</div>
 		</div>
-		
+		<input type="hidden" id="ann_id" value="<?php echo $_GET["id"];?>">
+		<input type="hidden" id="price" value="<?php echo $result_ann['price_1'];?>">
 		<?php
 		$query_calendar = mysqli_query($connect, "SELECT * FROM `calendar` WHERE announce_id = '" . $_GET["id"] . "'");
 		$date = array();
@@ -577,7 +578,38 @@ if ($_GET["id"] != null) {
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  	<script>
+  	<script  type="text/javascript">
+  		$(document).ready(function(){
+  			$("#btn-booking").click(function(e){
+  				var vPrice = $("#price").val();
+  				var vTo    = $("#to").val();
+  				var vFrom  = $("#from").val();
+  				var vPassenger = $("#passenger").val();
+  				var vMode	= "booking";
+  				var vId		= $("#ann_id").val();
+  				
+  				console.log(vPrice+' '+ vTo + ' ' + vFrom + ' ' + vPassenger + ' ' + vId);
+  				
+  				$.post("process/booking.php",{
+  					p : vPrice,
+  					t : vTo,
+  					f : vFrom,
+  					pa : vPassenger,
+  					id : vId,
+  					mode : vMode 
+  				}, function(data){
+  					var obj = JSON.parse(data);
+  					if(obj.error){
+  						alert(obj.msg);
+  						console.log(obj);
+  					}else{
+  						location.replace(obj.update);
+  						console.log(obj);
+  					}
+  				})
+  			});
+  		});
+  		
 		
 		var day = new Array(<?php echo json_encode($date); ?>
 			);

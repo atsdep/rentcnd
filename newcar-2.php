@@ -178,7 +178,6 @@ include ("process/Select_Car.php");
 						alert(obj.msg);
 					} else {
 						location.replace(obj.update);
-						console.log(obj);
 					}
 				})
 			});
