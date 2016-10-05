@@ -41,9 +41,9 @@ if ($_SESSION['username'] == "") {
 					</button>
 					<a class="navbar-brand" href="index.php">Logo</a>
 					<!-- <form class="navbar-left visible-xs">
-						<div class="">
-							<input type="text" class="form-sm" placeholder="ไปที่ไหน">
-						</div>
+					<div class="">
+					<input type="text" class="form-sm" placeholder="ไปที่ไหน">
+					</div>
 					</form> -->
 				</div>
 				<div class="collapse navbar-collapse" id="navbar-collapse-1">
