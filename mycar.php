@@ -23,11 +23,13 @@ if (!isset($_SESSION['login'])) {
 		<meta name="viewport" content="width=device-width; initial-scale=1.0">
 
 		<!-- css -->
+		<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
 		<link rel="stylesheet" href="css/bootstrap.min.css">
 		<link rel="stylesheet" href="css/custom3.css">
-		<link rel="stylesheet" href="css/adthasid.css">
+		<link rel="stylesheet" href="css/study.css">
+		<link rel="stylesheet" href="css/mycar.css">
 		
-		<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+		
 
 		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
 		<link rel="shortcut icon" href="/favicon.ico">
@@ -82,7 +84,7 @@ if (!isset($_SESSION['login'])) {
 			</div>
 		</nav>
 
-		<main id="site-content" role="main">
+		<main id="site-content-mycar-page" role="main">
 
 			<div class="subnav hide-print">
 				<div class="page-container-responsive">
@@ -105,10 +107,10 @@ if (!isset($_SESSION['login'])) {
 					<div class="col-md-3 space-sm-3">
 						<ul class="sidenav-list">
 							<li>
-								<a href="mycar.php" aria-selected="false" class="sidenav-item">รถเช่าของคุณ</a>
+								<a href="/rooms" aria-selected="true" class="sidenav-item">รถเช่าของคุณ</a>
 							</li>
 							<li>
-								<a href="my_reservations.php" aria-selected="true" class="sidenav-item">การจองของคุณ</a>
+								<a href="my_reservations.php" aria-selected="false" class="sidenav-item">การจองของคุณ</a>
 							</li>
 							<li>
 								<a href="requirements.php" aria-selected="false" class="sidenav-item">ข้อกำหนดในการจอง</a>
@@ -116,56 +118,82 @@ if (!isset($_SESSION['login'])) {
 						</ul>
 					</div>
 					<div class="col-md-9">
-						<div class="your-listings-flash-container"></div>
-						<div class="panel">
-							<div class="panel-body">
-								
-								<?php
-								$query_reservations = mysqli_query($connect, "SELECT * FROM booking WHERE member_id = 1 ");
-								$row_booking = mysqli_num_rows($query_reservations);
-								if($row_booking >0){
-								?>
-								
-								<p>
-									การจองที่กำลังจะมาถึง
-								</p>
-								
-								<table>
-									<tr>
-										<th class="text-center text-center-sm">เลขที่ใบจอง</th>
-										<th class="text-center text-center-sm">วันที่จอง</th>
-										<th class="text-center text-center-sm">ถึงวันที่</th>
-										<th class="text-center text-center-sm">สถานะ</th>
-										<th class="text-center text-center-sm" colspan="2">เมนู</th>
-									</tr>
-									
-								<?php
-								}
-								?>
-								<p>
-									คุณไม่มีการจองที่กำลังจะมาถึง
-								</p>
-								
-								<?php
+						<div class="your-listings-flash-container">
+							
+							<div id="listings-container">
+								<div>
+									<div class="suspension-container">
+										<div class="panel space-4">
+											<div class="panel-header active-panel-header">
+												<div class="row">
+													<div class="col-sm-6 active-panel-padding">
+														กำลังดำเนินการ
+													</div>
+													<!-- <div id="ib-master-switch-container" class="col-sm-6"></div> -->
+												</div>
+											</div>
+											<ul class="list-unstyled list-layout">
+												<li class="listing panel-body">
+													<div class="row row-table">
+														<i class="icon fa fa-times icon-remove-listing pointer"></i>
+														<div class="col-middle space-sm-2 space-top-sm-4 col-md-5">
+															<a href="/manage-listing/14938404">
+															<div class="media-photo media-photo-block-lg">
+																<div class="media-cover text-center">
+																	<img class="img-responsive-height" src="img/car.jpg" style="width: 230px">
+																</div>
+															</div></a>
+														</div>
 
-								while ($row_reservations = mysqli_fetch_assoc($query_reservations)) {
-									?>
+														<div class="col-sm-10 col-lg-7 col-middle">
+															<div class="row row-table">
+																<div class="col-lg-10">
+																	<div class="listing-progress">
+																		<div class="text-babu space-top-1 text-title">
+																			<span>พร้อมที่จะประกาศแล้ว!</span>
+																		</div>
+																		<div class="space-top-2"></div>
+																	</div>
+																</div>
+															</div>
+															<span class="h4"> <a href="/manage-listing/14938404" class="text-normal"> <span> <span>test</span></span></a></span>
+															<div class="text-muted text-grey space-top-1 last-modified-date">
+																<span>ปรับปรุงล่าสุดวันที่ 8 กันยายน 2016</span>
+															</div>
+															<div class="space-top-4">
+																<a class="btn btn__first-btn btn-primary" href="/manage-listing/14938404?listnow"> <span>ลงประกาศที่พัก</span></a>
+																<a class="btn btn__second-btn" href="/rooms/14938404"> <span>ดูตัวอย่าง</span></a>
+															</div>
 
-									<tr>
-										<td class="text-center text-center-sm"><?php echo $row_reservations['booking_id']; ?></td>
-										<td class="text-center text-center-sm"><?php echo date("d/m/Y",strtotime(str_replace('/', '-', $row_reservations['check_in']))) ?></td>
-										<td class="text-center text-center-sm"><?php echo date("d/m/Y",strtotime(str_replace('/', '-', $row_reservations['check_out']))) ?></td>
-										<td class="text-center text-center-sm"><?php echo $row_reservations['status']; ?></td>
-										<td class="text-center text-center-sm">ปริ้น</td>
-										<td class="text-center text-center-sm">รายละเอียดเพิ่มเติม</td>
-									</tr>
-									<?php
-									}
- 									?>
-								</table>
-								<a href="/my_reservations?all=1">ดูประวัติการจองรถเช่าทั้งหมด</a>
+														</div>
+													</div>
+												</li>
+												<div class="alert alert-block alert-with-icon listing-deletion__alert-box hide">
+													<div class="h5 space-top-5">
+														<span>ลบที่พักนี้</span>
+													</div>
+													<div class="space-top-2"></div>
+													<p>
+														<span>แน่ใจหรือไม่ว่าต้องการลบที่พักนี้? คุณไม่สามารถเพิกถอนการกระทำนี้ได้</span>
+													</p><div class="space-top-4"></div>
+													<div>
+														<div class="btn btn-host">
+															<span>ลบ</span>
+														</div>
+														<div class="btn">
+															<span>กลับไป</span>
+														</div>
+													</div>
+												</div>
+											</ul>
+										</div>
+
+									</div>
+								</div>
 							</div>
+							
 						</div>
+
 					</div>
 				</div>
 			</div>

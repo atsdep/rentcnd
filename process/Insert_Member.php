@@ -2,12 +2,21 @@
 require ("../config/database.php");
 require ("../config/connect.php");
 
-$query = mysqli_query($connect, "INSERT INTO members(mem_name,mem_surname,mem_email,mem_pw)
-	values('" . $_POST["n"] . "', '" . $_POST["s"] . "','" . $_POST["e"] . "','" . $_POST["p"] . "');
+
+
+$query = mysqli_query($connect, "INSERT INTO members(mem_name
+	,mem_surname
+	,mem_email
+	,mem_pw)
+	values('" . $_POST["n"] . "'
+	, '" . $_POST["s"] . "'
+	,'" . $_POST["e"] . "'
+	,'".md5($_POST["p"])."'
+	);
 	");
 
 if (!$query) {
-	//echo "Error: " . $query . "<br>" . $connect -> error;
+	
 	$data["error"] = true;
 	$data["msg"] = "โปรดติดต่อผู้ดูแลระบบ";
 

@@ -25,7 +25,8 @@ if (!isset($_SESSION['login'])) {
 		<!-- css -->
 		<link rel="stylesheet" href="css/bootstrap.min.css">
 		<link rel="stylesheet" href="css/custom3.css">
-		<link rel="stylesheet" href="css/adthasid.css">
+		<link rel="stylesheet" href="css/study.css">
+		<link rel="stylesheet" href="css/mycar.css">
 		
 		<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
 
@@ -108,64 +109,48 @@ if (!isset($_SESSION['login'])) {
 								<a href="mycar.php" aria-selected="false" class="sidenav-item">รถเช่าของคุณ</a>
 							</li>
 							<li>
-								<a href="my_reservations.php" aria-selected="true" class="sidenav-item">การจองของคุณ</a>
+								<a href="my_reservations.php" aria-selected="false" class="sidenav-item">การจองของคุณ</a>
 							</li>
 							<li>
-								<a href="requirements.php" aria-selected="false" class="sidenav-item">ข้อกำหนดในการจอง</a>
+								<a href="requirements.php" aria-selected="true" class="sidenav-item">ข้อกำหนดในการจอง</a>
 							</li>
 						</ul>
 					</div>
 					<div class="col-md-9">
 						<div class="your-listings-flash-container"></div>
-						<div class="panel">
-							<div class="panel-body">
-								
-								<?php
-								$query_reservations = mysqli_query($connect, "SELECT * FROM booking WHERE member_id = 1 ");
-								$row_booking = mysqli_num_rows($query_reservations);
-								if($row_booking >0){
-								?>
-								
-								<p>
-									การจองที่กำลังจะมาถึง
-								</p>
-								
-								<table>
-									<tr>
-										<th class="text-center text-center-sm">เลขที่ใบจอง</th>
-										<th class="text-center text-center-sm">วันที่จอง</th>
-										<th class="text-center text-center-sm">ถึงวันที่</th>
-										<th class="text-center text-center-sm">สถานะ</th>
-										<th class="text-center text-center-sm" colspan="2">เมนู</th>
-									</tr>
-									
-								<?php
-								}
-								?>
-								<p>
-									คุณไม่มีการจองที่กำลังจะมาถึง
-								</p>
-								
-								<?php
 
-								while ($row_reservations = mysqli_fetch_assoc($query_reservations)) {
-									?>
-
-									<tr>
-										<td class="text-center text-center-sm"><?php echo $row_reservations['booking_id']; ?></td>
-										<td class="text-center text-center-sm"><?php echo date("d/m/Y",strtotime(str_replace('/', '-', $row_reservations['check_in']))) ?></td>
-										<td class="text-center text-center-sm"><?php echo date("d/m/Y",strtotime(str_replace('/', '-', $row_reservations['check_out']))) ?></td>
-										<td class="text-center text-center-sm"><?php echo $row_reservations['status']; ?></td>
-										<td class="text-center text-center-sm">ปริ้น</td>
-										<td class="text-center text-center-sm">รายละเอียดเพิ่มเติม</td>
-									</tr>
-									<?php
-									}
- 									?>
-								</table>
-								<a href="/my_reservations?all=1">ดูประวัติการจองรถเช่าทั้งหมด</a>
+						<form accept-charset="UTF-8" action="/users/update_reservation_requirements/63856890" method="post">
+							<div style="margin:0;padding:0;display:inline">
+								<input name="utf8" type="hidden" value="✓">
+								<input name="authenticity_token" type="hidden" value="V4$.airbnb.com$1NLIjbajk10$b79L9RWxV_SAoREneDl0jpDTGRV1wXRyAEyKysCFkk0=">
 							</div>
-						</div>
+							<div class="panel">
+								<div class="panel-header">
+									บัตรประจำตัวที่ยืนยันแล้ว
+								</div>
+								<div class="panel-body">
+
+									<input id="id" name="id" type="hidden" value="63856890">
+
+									<p>
+										ผู้เข้าพักของคุณจะจำเป็นต้องยืนยันตัวตนของเขาก่อนจองที่พักกับคุณ <a href="/help/article/450" target="_blank"> เรียนรู้เพิ่มเติม </a>
+									</p>
+									<p>
+										ก่อนที่คุณจะสามารถขอให้ผู้เข้าพักยืนยันตัวตนของเขาได้ คุณจะจำเป็นต้องยืนยันตัวตนคุณก่อน!
+									</p>
+									<p>
+										<a href="/verify">ยืนยันตัวตนคุณ</a>เพื่อเริ่มใช้งานข้อกำหนดนี้
+									</p>
+									<label for="user_preference_require_guest_checkpoint">
+										<input name="user_preference[require_guest_checkpoint]" type="hidden" value="0">
+										<input disabled="disabled" id="user_preference_require_guest_checkpoint" name="user_preference[require_guest_checkpoint]" type="checkbox" value="1">
+										ขอให้ผู้เข้าพักของคุณทำการยืนยันตัวตน </label>
+								</div>
+								<div class="panel-body">
+									<input class="btn btn-primary" name="commit" type="submit" value="บันทึกข้อกำหนดในการจองที่พัก">
+								</div>
+							</div>
+						</form>
 					</div>
 				</div>
 			</div>

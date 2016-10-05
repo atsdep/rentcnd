@@ -81,7 +81,7 @@ include("process/Select_Member.php");
 									<a href="my_reservations.php">ข้อมูลการจอง</a>
 								</li>
 								<li>
-									<a href="process/destroy_session.php">ออกจากระบบ</a>
+									<a href="process/logout.php">ออกจากระบบ</a>
 								</li>
 							</ul>
 						</li>
@@ -154,7 +154,7 @@ include("process/Select_Member.php");
 								<input type="text" id="LoginEmail" name="LoginEmail" placeholder="อีเมลล์แอดเดรส">
 							</div>
 							<div class="row">
-								<input type="text" id="LoginPassword" name="LoginPassword" placeholder="รหัสผ่าน">
+								<input type="password" id="LoginPassword" name="LoginPassword" placeholder="รหัสผ่าน">
 							</div>
 							<div class="row">
 								<button id="btnLogin" type="button">
@@ -200,10 +200,10 @@ include("process/Select_Member.php");
 								<input type="text" id="email" name="email" placeholder="อีเมลล์แอดเดรส">
 							</div>
 							<div class="row">
-								<input type="text" id="password" name="password" placeholder="รหัสผ่าน">
+								<input type="password" id="password" name="password" placeholder="รหัสผ่าน">
 							</div>
 							<div class="row">
-								<input type="text" id="con_pwd" name="con_pwd" placeholder="ยืนยันรหัสผ่าน">
+								<input type="password" id="con_pwd" name="con_pwd" placeholder="ยืนยันรหัสผ่าน">
 							</div>
 							<div class="row">
 								<button id="btnRegister" type="button">
@@ -401,7 +401,7 @@ include("process/Select_Member.php");
 				var tPassword = $("#password").val();
 				var tCon_pwd = $("#con_pwd").val();
 
-				$.post("process/Test_Insert.php", {
+				$.post("process/Insert_Member.php", {
 					n : tName,
 					s : tSurname,
 					e : tEmail,

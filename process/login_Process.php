@@ -3,7 +3,7 @@ session_start();
 require ("../config/database.php");
 require ("../config/connect.php");
 
-$conn_query_a = mysqli_query($connect, "SELECT * FROM members WHERE mem_email = '" . $_POST["e"] . "' AND mem_pw = '" . $_POST["p"] . "' ");
+$conn_query_a = mysqli_query($connect, "SELECT * FROM members WHERE mem_email = '" . $_POST["e"] . "' AND mem_pw = '".md5($_POST["p"])."' ");
 
 $row_a = mysqli_fetch_assoc($conn_query_a);
 
