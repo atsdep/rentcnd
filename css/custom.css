@@ -626,6 +626,10 @@ h4, .h4 {
 	.navbar-custom .nav li a:hover, .navbar-custom .nav li a:focus {
 		color: #fff;
 	}
+	.navbar-custom .nav .dropdown-menu li a {
+		color: #000000;
+		padding: 20px
+	}
 
 }
 .intro-header {
@@ -950,4 +954,8 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
 .row-condensed .col-lg-12 {
     padding-left: 6px;
     padding-right: 6px
+}
+
+.black-font{
+	color: #000000;
 }

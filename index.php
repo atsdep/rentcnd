@@ -75,10 +75,10 @@ include("process/Select_Member.php");
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" ><?php echo $result_mem['mem_name'] ?></a>
 							<ul class="dropdown-menu">
 								<li>
-									<a href="#">HTML</a>
+									<a href="#">แก้ไขข้อมูลส่วนตัว</a>
 								</li>
 								<li>
-									<a href="#">CSS</a>
+									<a href="my_reservations.php">ข้อมูลการจอง</a>
 								</li>
 								<li>
 									<a href="process/destroy_session.php">ออกจากระบบ</a>
@@ -231,8 +231,8 @@ include("process/Select_Member.php");
 				<div class="row">
 					<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 						<div class="site-heading">
-							<h1 class="h1 text-jumbo">กำลังพัฒนา</h1>
-							<h4 class="h4 text-contrast space-4">กรุณารอซักครู่กำลังดาวน์โหลดข้อมูล....</h4>
+							<h1 class="h1 text-jumbo">รถเช่าพร้อมคนขับ</h1>
+							<h4 class="h4 text-contrast space-4">ให้คุณเลือกเช่ารถพร้อมคนขับรถ ทั่วประเทศ 77 จังหวัด </h4>
 							<a href="#" class="btn hidden-xs btn-contrast btn-lg btn-semi-transparent">วิธีใช้งาน Rentcnd</a>
 						</div>
 					</div>
@@ -378,7 +378,7 @@ include("process/Select_Member.php");
 							</li>
 						</ul>
 						<div class="space-top-2 text-muted">
-							© Rentcnd, Inc.
+							Copyright © 2016 Adthasid Suksomthawisap.  All right reserved.
 						</div>
 					</div>
 			</footer>
