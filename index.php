@@ -26,6 +26,9 @@ include("process/Select_Member.php");
 	
 		
 		<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+		
+		<script src="dist/sweetalert.min.js"></script> 
+		<link rel="stylesheet" type="text/css" href="dist/sweetalert.css">
 
 		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
 		<link rel="shortcut icon" href="/favicon.ico">
@@ -462,14 +465,21 @@ include("process/Select_Member.php");
 					e : lEmail,
 					p : lPassword
 				}, function(data) {
-					var obj = JSON.parse(data);
-					if (obj.error) {
-						alert("ผิดพลาด");
+					if (data.error) {
+						sweetAlert("ขออภัย...", data.msg, "error");
 					} else {
-						location.replace("index.php");
-						console.log(obj);
+						swal({
+							title : "Rentcnd ยินดีต้อนรับคุณ",
+							text : data.msg,
+							type : "success",
+						}, function() {
+							location.reload();
+							;
+						});
 					}
-				})
+
+				}, "json");
+				return false;
 			});
 
 		});
