@@ -47,6 +47,10 @@ if ($_GET["id"] != null) {
 		<!-- css -->
 		<link rel="stylesheet" href="css/bootstrap.min.css">
 		<link rel="stylesheet" href="css/custom3.css">
+		<link rel="stylesheet" href="css/study.css">
+		
+		<script src="dist/sweetalert.min.js"></script> 
+		<link rel="stylesheet" type="text/css" href="dist/sweetalert.css">
 
 		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
 		<link rel="shortcut icon" href="/favicon.ico">
