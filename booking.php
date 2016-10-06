@@ -29,6 +29,9 @@ if (!isset($_SESSION['login'])) {
 		<link rel="stylesheet" href="css/booking.css">
 		
 		<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+		
+		<script src="dist/sweetalert.min.js"></script> 
+		<link rel="stylesheet" type="text/css" href="dist/sweetalert.css">
 
 		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
 		<link rel="shortcut icon" href="/favicon.ico">
@@ -164,9 +167,34 @@ if (!isset($_SESSION['login'])) {
 										<td class="text-center text-center-sm"><?php echo $row_reservations['booking_id']; ?></td>
 										<td class="text-center text-center-sm"><?php echo date("d/m/Y",strtotime(str_replace('/', '-', $row_reservations['check_in']))) ?></td>
 										<td class="text-center text-center-sm"><?php echo date("d/m/Y",strtotime(str_replace('/', '-', $row_reservations['check_out']))) ?></td>
-										<td class="text-center text-center-sm"><?php echo $row_reservations['status']; ?></td>
-										<td class="text-center text-center-sm">ปริ้น</td>
-										<td class="text-center text-center-sm">รายละเอียดเพิ่มเติม</td>
+										<td class="text-center text-center-sm">
+											<select id="status">
+												<?php
+												switch ($row_reservations['status']) {
+													case '0' :
+														echo('<option  value="0" selected>รอการอนุมัติ</option>');
+														echo('<option  value="1">อนุมัติ</option>');
+														echo('<option  value="2">ยกเลิก</option>');
+														break;
+													case '1' :
+														echo('<option  value="0">รอการอนุมัติ</option>');
+														echo('<option  value="1" selected>อนุมัติ</option>');
+														echo('<option  value="2">ยกเลิก</option>');
+														break;
+													case '2' :
+														echo('<option  value="0">รอการอนุมัติ</option>');
+														echo('<option  value="1">อนุมัติ</option>');
+														echo('<option  value="2" selected>ยกเลิก</option>');
+														break;
+
+													default :
+														break;
+												}
+											?>
+											</select>
+										</td>
+										<td class="text-center text-center-sm"><button title="รายละเอียดเพิ่มเติม" class="fa fa-search" target="_blank"><span class="screen-reader-only">รายละเอียดเพิ่มเติม</span></button></td>
+										<td class="text-center text-center-sm"><button title="ยืนยันการแก้ไข" class="fa fa-check-circle-o" onClick="Update(<?php echo $row_reservations['booking_id'] ?>,'edit')"><span class="screen-reader-only">ยืนยันการแก้ไข</span></button></td>
 									</tr>
 									<?php
 									}
@@ -260,5 +288,37 @@ if (!isset($_SESSION['login'])) {
 	<?php
 	require ("config/js.php");
 	?>
+	
+	<script type="text/javascript">
+		function Update(id, mode) {
+			if (mode == "edit") {
+
+				var vStatus = $("#status").val();
+				console.log(id);
+				$.post("process/Update_booking.php", {
+					id : id,
+					status : vStatus,
+					mode : mode
+				}, function(data) {
+
+					if (data.error) {
+						sweetAlert("ขออภัย...", data.msg, "error");
+					} else {
+						swal({
+							title : "เรียบร้อย",
+							text : "แก้ไขข้อมูลเรียบร้อยแล้ว",
+							type : "success",
+						}, function() {
+							location.reload();
+							;
+						});
+					}
+
+				}, "json");
+
+				return false;
+			}
+		}
+	</script>
 
 </html>

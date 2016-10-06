@@ -139,7 +139,7 @@ if (!isset($_SESSION['login'])) {
 										<th class="text-center text-center-sm">วันที่จอง</th>
 										<th class="text-center text-center-sm">ถึงวันที่</th>
 										<th class="text-center text-center-sm">สถานะ</th>
-										<th class="text-center text-center-sm" colspan="2">เมนู</th>
+										<th class="text-center text-center-sm">เมนู</th>
 									</tr>
 									
 								<?php
@@ -162,8 +162,26 @@ if (!isset($_SESSION['login'])) {
 										<td class="text-center text-center-sm"><?php echo $row_reservations['booking_id']; ?></td>
 										<td class="text-center text-center-sm"><?php echo date("d/m/Y",strtotime(str_replace('/', '-', $row_reservations['check_in']))) ?></td>
 										<td class="text-center text-center-sm"><?php echo date("d/m/Y",strtotime(str_replace('/', '-', $row_reservations['check_out']))) ?></td>
-										<td class="text-center text-center-sm"><?php echo $row_reservations['status']; ?></td>
-										<td class="text-center text-center-sm">ปริ้น</td>
+										<td class="text-center text-center-sm">
+											<?php 
+											
+											switch ($row_reservations['status']) {
+													case '0' :
+														echo ('รอการอนุมัติ');
+														break;
+													case '1' :
+														echo ('อนุมัติแล้ว');
+														break;
+													case '2' :
+														echo ('ยกเลิก');
+														break;
+
+													default :
+														break;
+												}
+											?>
+										</td>
+										
 										<td class="text-center text-center-sm">รายละเอียดเพิ่มเติม</td>
 									</tr>
 									<?php
