@@ -1989,6 +1989,12 @@ fieldset {
 }
 
 /*หน้าประกาศทั้งหมด*/
+
+.filters{
+	padding:15px;
+}
+
+
 .color-gray {
 	background-color: #F4F4F4;
 }
