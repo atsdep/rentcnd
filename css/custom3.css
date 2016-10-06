@@ -2056,8 +2056,9 @@ fieldset {
 /*footer*/
 .container-brand-dark {
     padding: 48px 0;
-    background-image: url('img/dark.jpg');
+    background-image: url('../img/dark.jpg');
     background-color: #2b2d2e;
+   	opacity: 0.9;
     color: #fff
 }
 .container-brand-dark select {
