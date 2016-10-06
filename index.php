@@ -82,7 +82,7 @@ include("process/Select_Member.php");
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" ><?php echo $result_mem['mem_name'] ?></a>
 							<ul class="dropdown-menu">
 								<li>
-									<a href="#">แก้ไขข้อมูลส่วนตัว</a>
+									<a href="profile.php">แก้ไขข้อมูลส่วนตัว</a>
 								</li>
 								<li>
 									<a href="my_reservations.php">ข้อมูลการจอง</a>
@@ -470,9 +470,9 @@ include("process/Select_Member.php");
 					} else {
 						swal({
 							title : "Rentcnd ยินดีต้อนรับคุณ",
-							type : "success"
+							type : "success",
 							text : data.msg,
-							timer: 1000,
+							timer: 2000,
 							showConfirmButton: false
 						}, function() {
 							location.reload();

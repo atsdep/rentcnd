@@ -59,7 +59,7 @@ if (!isset($_SESSION['login'])) {
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" ><?php echo $result_mem['mem_name'] ?></a>
 							<ul class="dropdown-menu">
 								<li>
-									<a href="#">แก้ไขข้อมูลส่วนตัว</a>
+									<a href="profile.php">แก้ไขข้อมูลส่วนตัว</a>
 								</li>
 								<li>
 									<a href="my_reservations.php">ข้อมูลการจอง</a>
@@ -89,13 +89,13 @@ if (!isset($_SESSION['login'])) {
 				<div class="page-container-responsive">
 					<ul class="subnav-list">
 						<li>
-							<a href="/rooms" aria-selected="false" class="subnav-item" id="rooms-item">รถเช่าของคุณ</a>
+							<a href="mycar.php" aria-selected="false" class="subnav-item" id="rooms-item">รถเช่าของคุณ</a>
 						</li>
 						<li>
-							<a href="/users/edit" aria-selected="true" class="subnav-item" id="user-profile-item">โปรไฟล์</a>
+							<a href="profile.php" aria-selected="true" class="subnav-item" id="user-profile-item">โปรไฟล์</a>
 						</li>
 						<li>
-							<a href="/account" aria-selected="false" class="subnav-item" id="account-item">บัญชี</a>
+							<a href="#" aria-selected="false" class="subnav-item" id="account-item">บัญชี</a>
 						</li>
 					</ul>
 				</div>
@@ -109,13 +109,13 @@ if (!isset($_SESSION['login'])) {
 								<a href="profile.php" aria-selected="true" class="sidenav-item">แก้ไขข้อมูลส่วนตัว</a>
 							</li>
 							<li>
-								<a href="my_reservations.php" aria-selected="false" class="sidenav-item">รูปภาพ</a>
+								<a href="profile.php" aria-selected="false" class="sidenav-item">รูปภาพ</a>
 							</li>
 							<li>
-								<a href="requirements.php" aria-selected="false" class="sidenav-item">ยืนยันตัวตน</a>
+								<a href="profile.php" aria-selected="false" class="sidenav-item">ยืนยันตัวตน</a>
 							</li>
 							<li>
-								<a href="requirements.php" aria-selected="false" class="sidenav-item">ความคิดเห็น</a>
+								<a href="profile.php" aria-selected="false" class="sidenav-item">ความคิดเห็น</a>
 							</li>
 						</ul>
 					</div>

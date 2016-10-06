@@ -64,7 +64,7 @@ if (!isset($_SESSION['login'])) {
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" ><?php echo $result_mem['mem_name'] ?></a>
 							<ul class="dropdown-menu">
 								<li>
-									<a href="#">แก้ไขข้อมูลส่วนตัว</a>
+									<a href="profile.php">แก้ไขข้อมูลส่วนตัว</a>
 								</li>
 								<li>
 									<a href="my_reservations.php">ข้อมูลการจอง</a>
@@ -111,7 +111,7 @@ if (!isset($_SESSION['login'])) {
 					<div class="col-md-3 space-sm-3">
 						<ul class="sidenav-list">
 							<li>
-								<a href="/rooms" aria-selected="true" class="sidenav-item">รถเช่าของคุณ</a>
+								<a href="mycar.php" aria-selected="true" class="sidenav-item">รถเช่าของคุณ</a>
 							</li>
 							<li>
 								<a href="my_reservations.php" aria-selected="false" class="sidenav-item">การจองของคุณ</a>
