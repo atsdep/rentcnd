@@ -240,7 +240,7 @@ include ('process/Select_Ann.php');
 							<span>ค้นหารถยนต์อย่างละเอียด</span><span> </span>
 						</button></span>
 
-						<div class="crossfading-panel__container text-left pull-right crossfading-panel__container--md show-md">
+						<div class="crossfading-panel__container text-left pull-right crossfading-panel__container--md hide-sm">
 							<div class="crossfading-panel crossfading-panel__vertically-centered-container">
 								<h1 class="crossfading-panel--vertically-centered h6 text-left crossfading-panel--margin-left"><span>300+ รถเช่า</span><span><span> · </span><span>กรุงเทพมหานคร</span></span></h1>
 							</div>

@@ -26,6 +26,7 @@ if (!isset($_SESSION['login'])) {
 		<link rel="stylesheet" href="css/bootstrap.min.css">
 		<link rel="stylesheet" href="css/custom3.css">
 		<link rel="stylesheet" href="css/study.css">
+		<link rel="stylesheet" href="css/booking.css">
 		
 		<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
 
@@ -140,13 +141,17 @@ if (!isset($_SESSION['login'])) {
 									</tr>
 									
 								<?php
-								}
+								}else{
+									
+								
 								?>
 								<p>
 									คุณไม่มีการจองที่กำลังจะมาถึง
 								</p>
 								
 								<?php
+								
+								}
 
 								while ($row_reservations = mysqli_fetch_assoc($query_reservations)) {
 									?>

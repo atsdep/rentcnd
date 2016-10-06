@@ -28,6 +28,7 @@ if (!isset($_SESSION['login'])) {
 		<link rel="stylesheet" href="css/custom3.css">
 		<link rel="stylesheet" href="css/study.css">
 		<link rel="stylesheet" href="css/mycar.css">
+		<link rel="stylesheet" href="css/booking.css">
 		
 		
 
