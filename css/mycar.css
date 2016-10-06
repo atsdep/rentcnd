@@ -331,8 +331,8 @@
     position: absolute
 }
 .icon-remove-listing {
+	position: absolute;
     cursor: pointer;
-    position: absolute;
     right: 20px
 }
 @media (max-width: 743px) {

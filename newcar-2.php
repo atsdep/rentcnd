@@ -66,8 +66,6 @@ include ("process/Select_Car.php");
 							<div class="select select-block select-jumbo">
 								<select id="generation" name="generation" class="text-gray" disabled>
 									<option selected="" disabled="">เลือกหนึ่งข้อ</option>
-									<option value="1">YARIS</option>
-									<option value="2">JAZZ</option>
 								</select>
 							</div>
 
@@ -107,7 +105,7 @@ include ("process/Select_Car.php");
 							</select>
 						</div>
 						<div class="button-panel mgt60">
-							<a href="newcar.php"><span class="">กลับไป</span></a>
+							<a href="new.php"><span class="">กลับไป</span></a>
 
 							<button id="btn-next" name="btn-next" class="btn btn-large btn-primary pull-right" href="#.php">
 								<!-- amenities -->

@@ -294,7 +294,7 @@ if (!isset($_SESSION['login'])) {
 			if (mode == "edit") {
 
 				var vStatus = $("#status").val();
-				console.log(id);
+				//console.log(id);
 				$.post("process/Update_booking.php", {
 					id : id,
 					status : vStatus,

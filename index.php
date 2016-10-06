@@ -233,7 +233,7 @@ include("process/Select_Member.php");
 			</div><!-- /.modal-dialog -->
 		</div><!-- /.modal -->
 
-		<header class="intro-header" style="background-image: url('img/header-	bg-1.jpg')">
+		<header class="intro-header" style="background-image: url('img/header-bg-1.jpg')">
 			<div class="	">
 				<div class="row">
 					<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
@@ -471,7 +471,8 @@ include("process/Select_Member.php");
 						swal({
 							title : "Rentcnd ยินดีต้อนรับคุณ",
 							text : data.msg,
-							type : "success",
+							timer: 1000,
+							showConfirmButton: false
 						}, function() {
 							location.reload();
 							;

@@ -112,7 +112,7 @@
 						</div>
 
 						<div class="button-panel mgt60">
-							<a href="newcar-2.php"><span class="">กลับไป</span></a>
+							<a id="btn-back" href="newcar-2.php"><span class="">กลับไป</span></a>
 
 							<a id="btn-next" class="btn btn-large btn-primary pull-right" href="#" >
 							<div class="btn-progress-next__text">

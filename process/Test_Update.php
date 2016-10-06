@@ -268,6 +268,26 @@ if ($_POST["mode"] == "add_gene") {
 
 }
 
+if ($_POST["mode"] == "ready") {
+
+	//$mem_user = $_SESSION['mem_id'];
+
+	$query = mysqli_query($connect, "UPDATE `announces` SET ann_status =  1
+			WHERE announce_id = '" . $_POST["id"] . "' 
+			");
+
+	if (!$query) {
+		$data["error"] = true;
+		$data["msg"] = "เกิดความผิดพลาดกรุณาติดต่อผู้ดูแลระบบ";
+
+	} else {
+		$data["error"] = false;
+		//$data["update"] = "booking.php";
+
+	}
+}
+
+
 // else if ($_POST["mode"] == "update_manage-cl") {
 //
 // $mem_user = $_SESSION['mem_id'];

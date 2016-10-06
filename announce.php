@@ -2,7 +2,6 @@
 session_start();
 require ("config/database.php");
 require ("config/connect.php");
-include ('process/Select_Ann.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -253,7 +252,13 @@ include ('process/Select_Ann.php');
 					<div class="listings-container">
 						<div class="row">
 							<?php
-
+							
+							$query_ann = mysqli_query($connect, "SELECT * FROM `announces` WHERE ann_status = 1");
+							$row_all = mysqli_num_rows($query_ann);
+							
+							if($row_all >0){
+								
+							
 							while ($row_ann = mysqli_fetch_assoc($query_ann)) {						
 							?>
 							
@@ -295,6 +300,7 @@ include ('process/Select_Ann.php');
 							<!-- col-lg-4 -->
 							
 							<?php
+								}
 							}
 							?>
 						</div>

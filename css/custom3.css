@@ -2383,3 +2383,23 @@ fieldset {
 }
 
 
+/*pic*/
+.pic-mycar{
+	background-position: center center;
+	
+}
+
+.panel-mycar{
+	width: 220px;
+	height: auto;
+}
+
+@media only screen and (min-width: 768px) {	
+	.img-auto-mycar {
+		width: 100%;
+		height: 180px;
+	}
+
+}
+
+

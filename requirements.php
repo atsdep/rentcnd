@@ -112,6 +112,9 @@ if (!isset($_SESSION['login'])) {
 								<a href="my_reservations.php" aria-selected="false" class="sidenav-item">การจองของคุณ</a>
 							</li>
 							<li>
+								<a href="booking.php" aria-selected="false" class="sidenav-item">การจองของลูกค้า</a>
+							</li>
+							<li>
 								<a href="requirements.php" aria-selected="true" class="sidenav-item">ข้อกำหนดในการจอง</a>
 							</li>
 						</ul>
@@ -133,10 +136,10 @@ if (!isset($_SESSION['login'])) {
 									<input id="id" name="id" type="hidden" value="63856890">
 
 									<p>
-										ผู้เข้าพักของคุณจะจำเป็นต้องยืนยันตัวตนของเขาก่อนจองที่พักกับคุณ <a href="/help/article/450" target="_blank"> เรียนรู้เพิ่มเติม </a>
+										ผู้เช่าบริการของคุณจำเป็นต้องยืนยันตัวตนของเขาก่อนจองใช้บริการกับคุณ <a href="/help/article/450" target="_blank"> เรียนรู้เพิ่มเติม </a>
 									</p>
 									<p>
-										ก่อนที่คุณจะสามารถขอให้ผู้เข้าพักยืนยันตัวตนของเขาได้ คุณจะจำเป็นต้องยืนยันตัวตนคุณก่อน!
+										ก่อนที่คุณจะสามารถขอให้ผู้เช่าบริการยืนยันตัวตนของเขาได้ คุณจะจำเป็นต้องยืนยันตัวตนคุณก่อน!
 									</p>
 									<p>
 										<a href="/verify">ยืนยันตัวตนคุณ</a>เพื่อเริ่มใช้งานข้อกำหนดนี้
@@ -144,7 +147,7 @@ if (!isset($_SESSION['login'])) {
 									<label for="user_preference_require_guest_checkpoint">
 										<input name="user_preference[require_guest_checkpoint]" type="hidden" value="0">
 										<input disabled="disabled" id="user_preference_require_guest_checkpoint" name="user_preference[require_guest_checkpoint]" type="checkbox" value="1">
-										ขอให้ผู้เข้าพักของคุณทำการยืนยันตัวตน </label>
+										ขอให้ผู้ที่จะเช่าบริการของคุณทำการยืนยันตัวตน </label>
 								</div>
 								<div class="panel-body">
 									<input class="btn btn-primary" name="commit" type="submit" value="บันทึกข้อกำหนดในการจองที่พัก">
