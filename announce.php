@@ -23,7 +23,7 @@ include ('process/Select_Ann.php');
 		<link rel="stylesheet" href="css/bootstrap.min.css">
 		<link rel="stylesheet" href="css/custom3.css">
 		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-		<link rel="stylesheet" type="text/css" href="css/style.blackEagleSlideShow.css" />
+		
 
 		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
 		<link rel="shortcut icon" href="/favicon.ico">
@@ -87,9 +87,9 @@ include ('process/Select_Ann.php');
 		</nav>
 
 		<div class="col-lg-8">
-			<div class="panel-body-filters  panel-light">
+			<div class="panel-body-filters  panel-light filters">
 				<div class="row">
-					<div class="col-lg-2 col-md-12 text-center-sm text-center-md space-sm-1 filter-label">
+					<div class="col-lg-2 col-md-12 text-center-sm text-center-md space-sm-1">
 						<label>วันที่</label>
 					</div>
 
@@ -132,7 +132,7 @@ include ('process/Select_Ann.php');
 				</div>
 			</div>
 			<hr>
-			<div class="panel-body-filters panel-light">
+			<div class="panel-body-filters panel-light filters">
 				<div class="row">
 					<div class="col-lg-2 col-md-12 text-center-sm text-center-md space-sm-1 filter-label">
 						<label>เส้นทาง</label>
@@ -155,7 +155,7 @@ include ('process/Select_Ann.php');
 				</div>
 			</div>
 			<hr>
-			<div class="panel-body-filters panel-light" data-name="room_types">
+			<div class="panel-body-filters panel-light filters" data-name="room_types">
 				<div class="row">
 					<div class="col-lg-2 col-md-12 text-center-sm text-center-md filter-label">
 						<label> ประเภทรถ </label>
@@ -207,7 +207,7 @@ include ('process/Select_Ann.php');
 				</div>
 			</div>
 			<hr>
-			<div class="panel-body-filters panel-body-last panel-light" data-name="room_types">
+			<div class="panel-body-filters panel-body-last panel-light filters" data-name="room_types">
 				<div class="row">
 					<div class="col-lg-2 col-md-12 text-center-sm text-center-md filter-label">
 						<label> ช่วงราคา </label>
