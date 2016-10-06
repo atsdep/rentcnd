@@ -109,10 +109,10 @@ if (!isset($_SESSION['login'])) {
 								<a href="mycar.php" aria-selected="false" class="sidenav-item">รถเช่าของคุณ</a>
 							</li>
 							<li>
-								<a href="my_reservations.php" aria-selected="true" class="sidenav-item">การจองของคุณ</a>
+								<a href="my_reservations.php" aria-selected="false" class="sidenav-item">การจองของคุณ</a>
 							</li>
 							<li>
-								<a href="booking.php" aria-selected="false" class="sidenav-item">การจองของลูกค้า</a>
+								<a href="booking.php" aria-selected="true" class="sidenav-item">การจองของลูกค้า</a>
 							</li>
 							<li>
 								<a href="requirements.php" aria-selected="false" class="sidenav-item">ข้อกำหนดในการจอง</a>
@@ -125,7 +125,11 @@ if (!isset($_SESSION['login'])) {
 							<div class="panel-body">
 								
 								<?php
-								$query_reservations = mysqli_query($connect, "SELECT * FROM booking WHERE member_id = '". $_SESSION['mem_id'] ."' ");
+								$query_reservations = mysqli_query($connect, "SELECT * FROM booking
+								INNER JOIN announces
+								ON announces.announce_id = booking.announce_id
+								WHERE announces.member_id = '". $_SESSION['mem_id'] ."' 
+								");
 								$row_booking = mysqli_num_rows($query_reservations);
 								if($row_booking >0){
 								?>
@@ -144,15 +148,13 @@ if (!isset($_SESSION['login'])) {
 									
 								<?php
 								}else{
-									
-								
 								?>
 								<p>
 									คุณไม่มีการจองที่กำลังจะมาถึง
 								</p>
 								
 								<?php
-								
+
 								}
 
 								while ($row_reservations = mysqli_fetch_assoc($query_reservations)) {
