@@ -470,6 +470,7 @@ include("process/Select_Member.php");
 					} else {
 						swal({
 							title : "Rentcnd ยินดีต้อนรับคุณ",
+							type : "success"
 							text : data.msg,
 							timer: 1000,
 							showConfirmButton: false
