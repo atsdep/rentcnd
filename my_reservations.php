@@ -25,7 +25,7 @@ if (!isset($_SESSION['login'])) {
 		<!-- css -->
 		<link rel="stylesheet" href="css/bootstrap.min.css">
 		<link rel="stylesheet" href="css/custom3.css">
-		<link rel="stylesheet" href="css/adthasid.css">
+		<link rel="stylesheet" href="css/study.css">
 		
 		<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
 

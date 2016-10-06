@@ -21,7 +21,10 @@ include("process/Select_Member.php");
 
 		<!-- css -->
 		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/custom3.css">
 		<link rel="stylesheet" href="css/custom.css">
+		
+		<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
 
 		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
 		<link rel="shortcut icon" href="/favicon.ico">
@@ -344,37 +347,70 @@ include("process/Select_Member.php");
 			</div>
 		</div>
 
-		<div id="footer" class="container-brand-dark row-space-top-6 ">
+		<div id="footer" class="container-brand-dark row-space-top-6">
 			<footer class="page-container-responsive">
+				<div class="row row-condensed">
+					<div class="col-sm-12 space-4 space-top-4 show-sm">
+						<ul class="list-layout list-inline text-center h5">
+							<li>
+								<a href="/about/about-us" class="link-contrast">เกี่ยวกับเรา</a>
+							</li>
+							<li>
+								<a href="/help?from=footer" class="link-contrast">ความช่วยเหลือ</a>
+							</li>
+							<li>
+								<a href="/terms" class="link-contrast">เงื่อนไขและความเป็นส่วนตัว</a>
+							</li>
+						</ul>
+					</div>
+
+					<!-- <div class="col-lg-12 col-md-12 col-md-offset-1 hide-sm">
+					<h2 class="h5">บริษัท</h2>
+
+					<ul class="list-layout">
+					<li>
+					<a href="/about/about-us" class="link-contrast">เกี่ยวกับเรา</a>
+					</li>
+					<li>
+					<a href="/help?from=footer" class="link-contrast">ความช่วยเหลือ</a>
+					</li>
+					<li>
+					<a href="/terms" class="link-contrast">เงื่อนไขและความเป็นส่วนตัว</a>
+					</li>
+					</ul>
+					</div> -->
+
+				</div>
+
+				<!-- <hr class="footer-divider space-top-8 space-4 hide-sm"> -->
 				<div class="row row-condensed">
 					<div class="text-center">
 						<h2 class="h5 space-4 hide-sm">ติดตามเราได้ที่</h2>
-						<ul class="list-layout list-inline" itemscope="" itemtype="http://schema.org/Organization">
-							<link itemprop="url" href="https://th.airbnb.com">
-							<meta itemprop="logo" content="https://a2.muscache.com/airbnb/static/logos/belo-200x200-4d851c5b28f61931bf1df28dd15e60ef.png">
+						<ul class="list-layout list-inline">
 							<li>
-								<a href="https://www.facebook.com/airbnb" class="link-contrast footer-icon-container" itemprop="sameAs" target="_blank"> <span class="screen-reader-only">Facebook</span> <i class="icon footer-icon icon-facebook"></i> </a>
-							</li>
-							<li>
-								<a href="https://plus.google.com/+airbnb" class="link-contrast footer-icon-container" itemprop="sameAs" rel="publisher" target="_blank"> <span class="screen-reader-only">Google+</span> <i class="icon footer-icon icon-google-plus"></i> </a>
+								<a href="https://www.facebook.com/adthasid.suksomthawisap" class="link-contrast footer-icon-container"  target="_blank"> <span class="screen-reader-only">Facebook</span> <i class="icon footer-icon fa fa-facebook"></i> </a>
 							</li>
 
 							<li>
-								<a href="https://twitter.com/airbnb" class="link-contrast footer-icon-container" itemprop="sameAs" target="_blank"> <span class="screen-reader-only">Twitter</span> <i class="icon footer-icon icon-twitter"></i> </a>
+								<a href="https://plus.google.com/+airbnb" class="link-contrast footer-icon-container"  rel="publisher" target="_blank"> <span class="screen-reader-only">Google+</span> <i class="icon footer-icon fa fa-google-plus"></i> </a>
 							</li>
 
 							<li>
-								<a href="https://www.linkedin.com/company/airbnb" class="link-contrast footer-icon-container" itemprop="sameAs" target="_blank"> <span class="screen-reader-only">LinkedIn</span> <i class="icon footer-icon icon-linkedin"></i> </a>
+								<a href="https://twitter.com/airbnb" class="link-contrast footer-icon-container"  target="_blank"> <span class="screen-reader-only">Twitter</span> <i aria-hidden="true" class="icon footer-icon fa fa-twitter"></i> </a>
 							</li>
 
 							<li>
-								<a href="https://www.pinterest.com/airbnb/" class="link-contrast footer-icon-container" itemprop="sameAs" target="_blank"> <span class="screen-reader-only">Pinterest</span> <i class="icon footer-icon icon-pinterest"></i> </a>
+								<a href="https://www.linkedin.com/company/airbnb" class="link-contrast footer-icon-container"  target="_blank"> <span class="screen-reader-only">LinkedIn</span> <i class="icon footer-icon fa fa-linkedin"></i> </a>
+							</li>
+
+							<li>
+								<a href="https://www.pinterest.com/airbnb/" class="link-contrast footer-icon-container"  target="_blank"> <span class="screen-reader-only">Pinterest</span> <i class="icon footer-icon fa fa-pinterest"></i> </a>
 							</li>
 							<li>
-								<a href="https://www.youtube.com/user/Airbnb" class="link-contrast footer-icon-container" itemprop="sameAs" target="_blank"> <span class="screen-reader-only">YouTube</span> <i class="icon footer-icon icon-youtube"></i> </a>
+								<a href="https://www.youtube.com/user/Airbnb" class="link-contrast footer-icon-container"  target="_blank"> <span class="screen-reader-only">YouTube</span> <i class="icon footer-icon fa fa-youtube-play"></i> </a>
 							</li>
 							<li>
-								<a href="https://instagram.com/airbnb" class="link-contrast footer-icon-container" itemprop="sameAs" target="_blank"> <span class="screen-reader-only">Instagram</span> <i class="icon footer-icon icon-instagram"></i> </a>
+								<a href="https://instagram.com/airbnb" class="link-contrast footer-icon-container"  target="_blank"> <span class="screen-reader-only">Instagram</span> <i class="icon footer-icon fa fa-instagram"></i> </a>
 							</li>
 						</ul>
 						<div class="space-top-2 text-muted">
