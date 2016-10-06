@@ -588,7 +588,7 @@ if ($_GET["id"] != null) {
   				var vMode	= "booking";
   				var vId		= $("#ann_id").val();
   				
-  				console.log(vPrice+' '+ vTo + ' ' + vFrom + ' ' + vPassenger + ' ' + vId);
+  				//console.log(vPrice+' '+ vTo + ' ' + vFrom + ' ' + vPassenger + ' ' + vId);
   				
   				$.post("process/booking.php",{
   					p : vPrice,
@@ -598,15 +598,23 @@ if ($_GET["id"] != null) {
   					id : vId,
   					mode : vMode 
   				}, function(data){
-  					var obj = JSON.parse(data);
-  					if(obj.error){
-  						alert(obj.msg);
-  						console.log(obj);
-  					}else{
-  						location.replace(obj.update);
-  						console.log(obj);
-  					}
-  				})
+  					if (data.error) {
+						sweetAlert("ขออภัย...", data.msg, "error");
+					} else {
+						swal({
+							title : "ทำการขอจองเรียบร้อย",
+							type : "success",
+							text : "ระบบจะนำท่านไปสู่หน้าการจอง",
+							timer: 2000,
+							showConfirmButton: false
+						}, function() {
+							window.location.assign("my_reservations.php");
+							;
+						});
+					}
+
+				}, "json");
+				return false;
   			});
   		});
   		
