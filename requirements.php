@@ -52,7 +52,7 @@ if (!isset($_SESSION['login'])) {
 							<a href="profile.php" aria-selected="false" class="subnav-item" id="user-profile-item">โปรไฟล์</a>
 						</li>
 						<li>
-							<a href="" aria-selected="false" class="subnav-item" id="account-item">บัญชี</a>
+							<a href="security.php" aria-selected="false" class="subnav-item" id="account-item">บัญชี</a>
 						</li>
 					</ul>
 				</div>
