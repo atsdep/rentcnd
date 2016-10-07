@@ -790,14 +790,6 @@ session_start();
 		<div style="width:0px; height:0px; display:none; visibility:hidden;" id="batBeacon0.40838812575142347"><img style="width:0px; height:0px; display:none; visibility:hidden;" id="batBeacon0.6110838261167388" width="0" height="0" src="https://bat.r.msn.com/action-uic/0?ti=5187185&amp;Ver=2&amp;mid=07509c1f-6d55-00cf-4151-085ae8133ed7&amp;evt=pageLoad&amp;lt=3288&amp;pi=-1748725250&amp;lg=th&amp;sw=1360&amp;sh=768&amp;sc=24&amp;tl=ให้เช่าห้อง บ้าน หรืออพาร์ทเมนท์ของคุณใน Airbnb&amp;p=https%3A%2F%2Fth.airbnb.com%2Fhost&amp;r=&amp;rn=273582"><img style="width:0px; height:0px; display:none; visibility:hidden;" id="batBeacon0.5270984929297393" width="0" height="0" src="https://bat.bing.com/action/0?ti=5187185&amp;Ver=2&amp;mid=07509c1f-6d55-00cf-4151-085ae8133ed7&amp;evt=pageLoad&amp;lt=3288&amp;pi=-1748725250&amp;lg=th&amp;sw=1360&amp;sh=768&amp;sc=24&amp;tl=ให้เช่าห้อง บ้าน หรืออพาร์ทเมนท์ของคุณใน Airbnb&amp;p=https%3A%2F%2Fth.airbnb.com%2Fhost&amp;r=&amp;rn=809669">
 		</div>
 	</body>
-
-	<div class="container-fluid content-new">
-		<a href="process/Add_Ann.php?mode=1">
-		<button>
-			สร้างประกาศ
-		</button></a>
-	</div>
-
 	<script src="js/jquery.js" type="text/javascript"></script>
 	<script src="js/bootstrap.min.js" type="text/javascript"></script>
 
